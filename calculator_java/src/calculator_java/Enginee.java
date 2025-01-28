@@ -126,4 +126,26 @@ import javax.swing.JTextField;
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        frame.setVisible(true);
 		}
+		private void operation() {
+			switch (operation){
+				case '+': 
+					result = num1 + num2;
+					break;
+				case '-':
+					result = num1 - num2;
+					break;
+				case '*':
+					result = num1 * num2;
+					break;
+				case '/':
+					if(num2 != 0)
+						result = num1 / num2;
+					else {
+						display.setText("ERROR");
+						return;
+					}
+					break;
+			}
+			display.setText(String.valueOf(result));
+		}
 	}
