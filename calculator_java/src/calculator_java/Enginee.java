@@ -75,12 +75,14 @@ import javax.swing.JTextField;
 	    }
 
 		private void setSettings() {
+		    // Configura el display (campo de texto) con una fuente grande y alineado a la derecha
 			display.setFont(new Font("Arial", Font.BOLD, 24));
 	        display.setHorizontalAlignment(JTextField.RIGHT);
 	        display.setEditable(false);
+		     // Configura el panel del display con un diseño de borde y añade el campo de texto
 	        displayPanel.setLayout(new BorderLayout());
 	        displayPanel.add(display, BorderLayout.CENTER);
-	        
+	        // Configura las características visuales de los botones numéricos
 	        setFeaturesButton(n0, ButtonType.NUMEROS);
 	        setFeaturesButton(n1, ButtonType.NUMEROS);
 	        setFeaturesButton(n2, ButtonType.NUMEROS);
@@ -91,13 +93,14 @@ import javax.swing.JTextField;
 	        setFeaturesButton(n7, ButtonType.NUMEROS);
 	        setFeaturesButton(n8, ButtonType.NUMEROS);
 	        setFeaturesButton(n9, ButtonType.NUMEROS);
+	        // Configura las características visuales de los botones de operación
 	        setFeaturesButton(division, ButtonType.SIGNOS);
 	        setFeaturesButton(multi, ButtonType.SIGNOS);
 	        setFeaturesButton(resta, ButtonType.SIGNOS);
 	        setFeaturesButton(suma, ButtonType.SIGNOS);
 	        setFeaturesButton(igual, ButtonType.SIGNOS);
 	        setFeaturesButton(reset, ButtonType.SIGNOS);
-	        
+	        // Añade los botones al panel de botones en una cuadrícula 4x4
 	        buttonPanel.add(n7);
 	        buttonPanel.add(n8);
 	        buttonPanel.add(n9);
@@ -114,5 +117,13 @@ import javax.swing.JTextField;
 	        buttonPanel.add(reset);
 	        buttonPanel.add(igual);
 	        buttonPanel.add(suma);
+	        // Añade los paneles de display y botones al panel principal
+	        contentPanel.add(displayPanel, BorderLayout.NORTH);
+	        contentPanel.add(buttonPanel, BorderLayout.CENTER);
+	        // Configura el marco principal de la aplicación
+	        frame.add(contentPanel);
+	        frame.setSize(400, 500);
+	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        frame.setVisible(true);
 		}
 	}
