@@ -1,6 +1,8 @@
 package calculator_java;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,7 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-	public abstract class Enginee implements ActionListener {
+	public class Enginee implements ActionListener {
 	   /** Marco principal, paneles y botones */
 		private JFrame frame;
 	    private JPanel contentPanel;
@@ -49,4 +51,68 @@ import javax.swing.JTextField;
 	        igual = new JButton("=");
 	        reset = new JButton("R");
 	    }
+	    /**
+	     * Tipos de botones.
+	     */
+	    private enum ButtonType {
+	        NUMEROS, SIGNOS
+	    }
+	    
+	    /**
+	     * Configura las características visuales de un botón.
+	     *
+	     * _button El botón a configurar.
+	     * _type   El tipo del botón (NUMERO O SIGNO).
+	     */
+	    private void setFeaturesButton(JButton _button, ButtonType _type) {
+	        _button.setFont(new Font("Arial", Font.BOLD, 18));
+	        if (_type == ButtonType.NUMEROS) {
+	            _button.setBackground(Color.CYAN);
+	        } else {
+	            _button.setBackground(Color.PINK);
+	        }
+	        _button.setFocusPainted(false);
+	    }
+
+		private void setSettings() {
+			display.setFont(new Font("Arial", Font.BOLD, 24));
+	        display.setHorizontalAlignment(JTextField.RIGHT);
+	        display.setEditable(false);
+	        displayPanel.setLayout(new BorderLayout());
+	        displayPanel.add(display, BorderLayout.CENTER);
+	        
+	        setFeaturesButton(n0, ButtonType.NUMEROS);
+	        setFeaturesButton(n1, ButtonType.NUMEROS);
+	        setFeaturesButton(n2, ButtonType.NUMEROS);
+	        setFeaturesButton(n3, ButtonType.NUMEROS);
+	        setFeaturesButton(n4, ButtonType.NUMEROS);
+	        setFeaturesButton(n5, ButtonType.NUMEROS);
+	        setFeaturesButton(n6, ButtonType.NUMEROS);
+	        setFeaturesButton(n7, ButtonType.NUMEROS);
+	        setFeaturesButton(n8, ButtonType.NUMEROS);
+	        setFeaturesButton(n9, ButtonType.NUMEROS);
+	        setFeaturesButton(division, ButtonType.SIGNOS);
+	        setFeaturesButton(multi, ButtonType.SIGNOS);
+	        setFeaturesButton(resta, ButtonType.SIGNOS);
+	        setFeaturesButton(suma, ButtonType.SIGNOS);
+	        setFeaturesButton(igual, ButtonType.SIGNOS);
+	        setFeaturesButton(reset, ButtonType.SIGNOS);
+	        
+	        buttonPanel.add(n7);
+	        buttonPanel.add(n8);
+	        buttonPanel.add(n9);
+	        buttonPanel.add(division);
+	        buttonPanel.add(n4);
+	        buttonPanel.add(n5);
+	        buttonPanel.add(n6);
+	        buttonPanel.add(multi);
+	        buttonPanel.add(n1);
+	        buttonPanel.add(n2);
+	        buttonPanel.add(n3);
+	        buttonPanel.add(resta);
+	        buttonPanel.add(n0);
+	        buttonPanel.add(reset);
+	        buttonPanel.add(igual);
+	        buttonPanel.add(suma);
+		}
 	}
